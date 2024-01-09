@@ -11,7 +11,7 @@ import FileBase from "react-file-base64";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createTour, getTours, updateTour } from "../redux/features/tourSlice";
+import { createTour, updateTour } from "../redux/features/tourSlice";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Quill from "quill";
@@ -66,20 +66,16 @@ const AddEditBlog = () => {
       const updatedTourData = { ...tourData, name: user?.result?.name };
 
       if (!id) {
-        dispatch(createTour({ updatedTourData })).then(() => {
-          dispatch(getTours(/* appropriate arguments here */));
-          navigate("/"); // Redirect to the tours page, where the updated list will show
-          // Note: no need to reload the page
-        });
+        dispatch(createTour({ updatedTourData, navigate, toast }));
       } else {
-        dispatch(updateTour({ id, updatedTourData })).then(() => {
-          dispatch(getTours(/* appropriate arguments here */));
-          navigate("/"); // Redirect to the tours page, where the updated list will show
-        });
+        dispatch(updateTour({ id, updatedTourData, toast, navigate }));
       }
-      handleClear(); // Clear form only once it’s certain that the tour was created/updated
+      handleClear();
+      window.location.reload();
+      navigate("/");
     }
   };
+
   const handleClear = () => {
     setTourData(initialState);
   };
