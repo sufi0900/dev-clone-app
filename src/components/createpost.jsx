@@ -71,8 +71,7 @@ const AddEditBlog = () => {
         dispatch(updateTour({ id, updatedTourData, toast, navigate }));
       }
       handleClear();
-      window.location.reload();
-      navigate("/");
+      navigate("/dashboard");
     }
   };
 

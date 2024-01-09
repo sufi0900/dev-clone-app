@@ -7,7 +7,7 @@ export const createTour = createAsyncThunk(
     try {
       const response = await api.createTour(updatedTourData);
       toast.success("Tour Added Successfully");
-      window.location.href = "/";
+      navigate("/dashboard");
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
