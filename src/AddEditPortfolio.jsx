@@ -73,7 +73,7 @@ const AddEditPortfolio = () => {
     jobtitle,
     github,
     facebook,
-    twitter,
+
     email,
     phone,
     address,
@@ -347,7 +347,7 @@ const AddEditPortfolio = () => {
                 />
               </Grid> */}
               <Divider />
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <FileBase
                   type="file"
                   multiple={false}
@@ -367,7 +367,7 @@ const AddEditPortfolio = () => {
                     Upload your picture
                   </p>
                 )}
-              </Grid>
+              </Grid> */}
               {/* <Grid item xs={12}>
                 <FileBase
                   type="file"

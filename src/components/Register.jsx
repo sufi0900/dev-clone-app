@@ -82,6 +82,7 @@ const Register = () => {
               onChange={onInputChange}
               required
               fullWidth
+              style={{ marginBottom: "16px" }} // Add margin-bottom for spacing
               error={!!error}
               helperText={error ? "Please provide first name" : ""}
             />
@@ -93,6 +94,7 @@ const Register = () => {
               onChange={onInputChange}
               required
               fullWidth
+              style={{ marginBottom: "16px" }} // Add margin-bottom for spacing
               error={!!error}
               helperText={error ? "Please provide last name" : ""}
             />
@@ -104,6 +106,7 @@ const Register = () => {
               onChange={onInputChange}
               required
               fullWidth
+              style={{ marginBottom: "16px" }} // Add margin-bottom for spacing
               error={!!error}
               helperText={error ? "Please provide email" : ""}
             />
@@ -115,6 +118,7 @@ const Register = () => {
               onChange={onInputChange}
               required
               fullWidth
+              style={{ marginBottom: "16px" }} // Add margin-bottom for spacing
               error={!!error}
               helperText={error ? "Please provide password" : ""}
             />
@@ -126,6 +130,7 @@ const Register = () => {
               onChange={onInputChange}
               required
               fullWidth
+              style={{ marginBottom: "16px" }} // Add margin-bottom for spacing
               error={!!error}
               helperText={error ? "Please provide confirm password" : ""}
             />
@@ -153,6 +158,7 @@ const Register = () => {
             <Button
               type="submit"
               fullWidth
+              style={{ marginBottom: "16px" }} // Add margin-bottom for spacing
               variant="contained"
               sx={{ mt: 2 }}
               disabled={loading}

@@ -54,7 +54,7 @@ function App() {
               <LeftSidebar burgerMenu={mobileMenu} closeMenu={toggle} />
               <Content />
 
-              {/* <RightSidebar /> */}
+              <RightSidebar />
             </main>
           }
         />
