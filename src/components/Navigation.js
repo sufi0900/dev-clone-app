@@ -88,7 +88,10 @@ const Navigation = () => {
           <span onClick={toggle}>
             <span onClick={toggle}>
               {user ? (
-                <img src={user?.result?.image} alt="Profile Picturee" />
+                <img
+                  src="https://c0.klipartz.com/pngpicture/340/946/gratis-png-avatar-usuario-computadora-iconos-desarrollador-de-software-avatar-thumbnail.png"
+                  alt="Profile Picturee"
+                />
               ) : (
                 <img
                   src="https://i.pinimg.com/originals/97/21/05/972105c5a775f38cf33d3924aea053f1.jpg"

@@ -40,6 +40,7 @@ const Register = () => {
     if (password !== confirmPassword) {
       return toast.error("Password should match");
     }
+
     if (email && password && firstName && lastName && confirmPassword) {
       dispatch(register({ formValue, navigate, toast }));
     }
@@ -134,7 +135,7 @@ const Register = () => {
               error={!!error}
               helperText={error ? "Please provide confirm password" : ""}
             />
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <FileBase
                 type="file"
                 multiple={false}
@@ -154,7 +155,7 @@ const Register = () => {
                   Upload your picture
                 </p>
               )}
-            </Grid>
+            </Grid> */}
             <Button
               type="submit"
               fullWidth

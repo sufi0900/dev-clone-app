@@ -8,29 +8,24 @@ export const login = createAsyncThunk(
       const response = await api.signIn(formValue);
       toast.success("Login Successfully");
 
-      if (response.data?.result?.newEmail) {
-        // If a new email has been changed, update the stored email in the local storage
-        const { token } = response.data;
-        const profile = JSON.parse(localStorage.getItem("profile"));
-        profile.email = response.data.result.newEmail;
-        profile.token = token;
-        try {
-          localStorage.setItem("profile", JSON.stringify(profile));
-        } catch (error) {
-          toast.error(
-            "Unable to save profile data. Local storage might be full."
-          );
-          // Handle storage error or warn the user accordingly
-        }
+      const { token } = response.data;
+      const storedProfile = JSON.parse(localStorage.getItem("profile")) || {};
+      const updatedProfile = {
+        ...storedProfile,
+        email: response.data?.result?.newEmail || storedProfile.email,
+        password: response.data?.result?.newPassword || storedProfile.password,
+        token,
+      };
+
+      try {
+        localStorage.setItem("profile", JSON.stringify(updatedProfile));
+      } catch (error) {
+        toast.error(
+          "Unable to save profile data. Local storage might be full."
+        );
+        // Handle storage error or warn the user accordingly
       }
-      if (response.data?.result?.newPassword) {
-        // If a new password has been changed, update the stored password in the local storage
-        const { token } = response.data;
-        const profile = JSON.parse(localStorage.getItem("profile"));
-        profile.password = response.data.result.newPassword;
-        profile.token = token;
-        localStorage.setItem("profile", JSON.stringify(profile));
-      }
+
       navigate("/");
       return response.data;
     } catch (err) {
