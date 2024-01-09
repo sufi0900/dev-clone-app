@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { FaDev } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
